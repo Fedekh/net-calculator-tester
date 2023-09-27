@@ -21,7 +21,7 @@ namespace net_calculator_tester.Classes
         {
             if (number2.Equals(default(T)))
             {
-                throw new Exception("Division by zero is not allowed.");
+                throw new Exception("Non si puo dividere per zero");
             }
             else
             {
