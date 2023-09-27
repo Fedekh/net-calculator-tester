@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
 namespace net_calculator_tester.Classes
 {
@@ -21,10 +16,20 @@ namespace net_calculator_tester.Classes
         {
             return number1 * number2;
         }
-        public T Division<T>(T number1, T number2) where T : INumber<T>
+
+        public T Division<T>(T number1, T number2) where T : INumber<T>, IEquatable<T>
         {
-            return number1 / number2;
+            if (number2.Equals(default(T)))
+            {
+                throw new Exception("Division by zero is not allowed.");
+            }
+            else
+            {
+                return number1 / number2;
+            }
         }
+
+
 
     }
 }
